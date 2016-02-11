@@ -1,5 +1,5 @@
 {
-  "name": "jenkins-cli",
+  "name": "@marionebl/jenkins-cli",
   "version": "0.1.0",
   "description": "jenkins command line interface",
   "main": "index.js",
