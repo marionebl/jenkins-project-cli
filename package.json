@@ -1,5 +1,5 @@
 {
-  "name": "@marionebl/jenkins-cli",
+  "name": "jenkins-project-cli",
   "version": "0.1.0",
   "description": "jenkins command line interface",
   "main": "index.js",
@@ -14,11 +14,11 @@
     "postversion": "echo $(git log -1 --pretty=%B HEAD^..HEAD) > .git/RELEASE_VERSION.tmp && git tag -d v$(cat .git/RELEASE_VERSION.tmp) && git commit --amend -m \"chore(release): $(cat .git/RELEASE_VERSION.tmp)\n$(cat .git/COMMITMSG.tmp)\" && git tag -a v$(cat .git/RELEASE_VERSION.tmp) -m \"$(cat .git/COMMITMSG.tmp)\""
   },
   "bin": {
-    "jenkins-cli": "./index.js"
+    "jenkins-project-cli": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marionebl/jenkins-cli.git"
+    "url": "git+https://github.com/marionebl/jenkins-project-cli.git"
   },
   "keywords": [
     "jenkins",
@@ -30,9 +30,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marionebl/jenkins-cli/issues"
+    "url": "https://github.com/marionebl/jenkins-project-cli/issues"
   },
-  "homepage": "https://github.com/marionebl/jenkins-cli#readme",
+  "homepage": "https://github.com/marionebl/jenkins-project-cli#readme",
   "devDependencies": {
     "conventional-changelog-cli": "1.0.0",
     "conventional-recommended-bump": "0.1.0",

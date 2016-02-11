@@ -1,17 +1,17 @@
-> jenkins-cli - jenkins command line interface
+> jenkins-project-cli - jenkins command line interface
 
 <p align="center">
-  <img src="https://cdn.rawgit.com/marionebl/jenkins-cli/master/jenkins-cli.svg" width="300" />
+  <img src="https://cdn.rawgit.com/marionebl/jenkins-project-cli/master/jenkins-project-cli.svg" width="300" />
 </p>
 
 ## Installation
 ```shell
 # Install it from npm
-npm install -g jenkins-cli
+npm install -g jenkins-project-cli
 ```
 
 ### Usage
-`jenkins-cli` exposes a command line interface
+`jenkins-project-cli` exposes a command line interface
 ```shell
 jenkins usage:
  -    pull - pull jenkins configuration for [project]
@@ -23,7 +23,7 @@ jenkins usage:
 ```
 
 ## Configuration
-`jenkins-cli` can be configured via `package.json` in `config.jenkins`, via `.jenkinsrc` and `.env` files. All configuration keys can be overridden via cli, by specifying `--${key}=${value}`.
+`jenkins-project-cli` can be configured via `package.json` in `config.jenkins`, via `.jenkinsrc` and `.env` files. All configuration keys can be overridden via cli, by specifying `--${key}=${value}`.
 
 ### .jenkinsrc
 ```js
@@ -31,11 +31,11 @@ jenkins usage:
   "host": "https://jenkins-host.tld",   // jenkins instance to use
   "group": "jenkins-group",             // jenkins group to use
   "directory": "configuration/jenkins", // directory to save project config.xmls to
-  "default": "jenkins-cli",             // project name to default to
+  "default": "jenkins-project-cli",             // project name to default to
   "projects": [                         // project names to execute subcommands for
-    "jenkins-cli",
-    "jenkins-cli-publish",
-    "jenkins-cli-test"
+    "jenkins-project-cli",
+    "jenkins-project-cli-publish",
+    "jenkins-project-cli-test"
   ]
 }
 ```
@@ -51,17 +51,17 @@ JENKINS_PASSWORD=[YOUR-PASSWORD]
 ### package.json
 ```json
 {
-  "name": "jenkins-cli",
+  "name": "jenkins-project-cli",
   "config": {
     "jenkins": {
         "host": "https://jenkins-host.tld",
         "group": "jenkins-group",
         "directory": "configuration/jenkins",
-        "default": "jenkins-cli",
+        "default": "jenkins-project-cli",
         "projects": [
-          "jenkins-cli",
-          "jenkins-cli-publish",
-          "jenkins-cli-test"
+          "jenkins-project-cli",
+          "jenkins-project-cli-publish",
+          "jenkins-project-cli-test"
         ]
       }
     }
