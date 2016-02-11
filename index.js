@@ -338,9 +338,18 @@ tasks.list.description = `list available projects`;
 tasks.help.description = `print this help`;
 tasks.version.description = `outputs the current version`;
 
+function getProjectPackage() {
+	try {
+		return require(path.resolve(process.cwd(), 'package.json'));
+	} catch (err) {
+		return {};
+	}
+}
+
 function main(options) {
 	// get all process.env.JENKINS_* variables
 	const environment = getEnvironment('JENKINS');
+	const projectPackage = getProjectPackage();
 
 	// Merge cli flags and package.json config
 	// - read from pkg.config.jenkins
@@ -348,7 +357,7 @@ function main(options) {
 	// - omit user and password, they should not be placed there
 	const settings = _.merge(
 		{},
-		_.omit(((pkg.config || {}).jenkins || {}), ['user', 'password']),
+		_.omit(((projectPackage.config || {}).jenkins || {}), ['user', 'password']),
 		environment,
 		options
 	);
