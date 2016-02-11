@@ -1,7 +1,7 @@
 > jenkins-project-cli - jenkins command line interface
 
 <p align="center">
-  <img src="https://cdn.rawgit.com/marionebl/jenkins-project-cli/master/jenkins-project-cli.svg" width="300" />
+  <img src="https://rawgit.com/marionebl/jenkins-project-cli/master/jenkins-project-cli.svg" width="300" />
 </p>
 
 ## Installation
