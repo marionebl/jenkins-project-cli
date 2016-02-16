@@ -193,6 +193,7 @@ function watchProject(projectName, runningProject, configuration) {
 	var line = 0; // eslint-disable-line no-var
 	var count = 0; // eslint-disable-line no-var
 	var lastChange = new Date(); // eslint-disable-line no-var
+	var waiting = false;
 	var builds = []; // eslint-disable-line no-var
 	const dots = ['.', '..', '...'];
 
@@ -223,6 +224,10 @@ function watchProject(projectName, runningProject, configuration) {
 								.then(log => {
 									const output = log.slice(line).map(line => chalk.white(`    ${speech}    ${line}`));
 									if (output.length) {
+										if (waiting) {
+											singlelog.stdout('');
+											waiting = false;
+										}
 										console.log(output.join('\n'));
 										lastChange = new Date();
 										line += output.length;
@@ -231,6 +236,7 @@ function watchProject(projectName, runningProject, configuration) {
 										singlelog.stdout(`${warn}    Log truncated at ${log.length} lines due to jenkins limits. ${chalk.grey(dots[count % dots.length])}`);
 									} else if (new Date() - lastChange > 3000) {
 										singlelog.stdout(`${wait}    Waiting for output from jenkins ${chalk.grey(dots[count % dots.length])}`);
+										waiting = true;
 									}
 									return data;
 								})
