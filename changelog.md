@@ -1,3 +1,13 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/marionebl/jenkins-project-cli/compare/v0.1.3...v0.1.4) (2016-02-16)
+
+
+### Bug Fixes
+
+* **build:** clear waiting line when new input arrives ([cae8d63](https://github.com/marionebl/jenkins-project-cli/commit/cae8d63))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/marionebl/jenkins-project-cli/compare/v0.1.2...v0.1.3) (2016-02-11)
 
