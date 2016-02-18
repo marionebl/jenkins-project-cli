@@ -44,8 +44,8 @@ jenkins-project-cli usage:
 ```
 # Use .env to save credentials for later use
 # It is recommended to place this in .gitignore
-JENKINS_USERNAME=[YOUR-USERNAME]
-JENKINS_PASSWORD=[YOUR-PASSWORD]
+JENKINS_PROJECT_CLI_USERNAME=[YOUR-USERNAME]
+JENKINS_PROJECT_CLI_PASSWORD=[YOUR-PASSWORD]
 ```
 
 ### package.json
