@@ -1,3 +1,20 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/marionebl/jenkins-project-cli/compare/v0.1.4...v1.0.0) (2016-02-18)
+
+
+### Features
+
+* actually use an rc file, shift naming ([a32d4e7](https://github.com/marionebl/jenkins-project-cli/commit/a32d4e7))
+
+
+### BREAKING CHANGES
+
+* S
+Namespaced everything to `jenkins-project-cli` and
+`JENKINS_PROJECT_CLI`
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/marionebl/jenkins-project-cli/compare/v0.1.3...v0.1.4) (2016-02-16)
 
