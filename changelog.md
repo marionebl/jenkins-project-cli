@@ -1,3 +1,9 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/marionebl/jenkins-project-cli/compare/v1.0.0...v1.0.1) (2016-02-18)
+
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/marionebl/jenkins-project-cli/compare/v0.1.4...v1.0.0) (2016-02-18)
 
