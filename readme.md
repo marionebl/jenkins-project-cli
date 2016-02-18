@@ -13,7 +13,7 @@ npm install -g jenkins-project-cli
 ### Usage
 `jenkins-project-cli` exposes a command line interface
 ```shell
-jenkins usage:
+jenkins-project-cli usage:
  -    pull - pull jenkins configuration for [project]
  -    push - push jenkins configuration for [project]
  -    build - trigger build for [project]
@@ -25,7 +25,7 @@ jenkins usage:
 ## Configuration
 `jenkins-project-cli` can be configured via `package.json` in `config.jenkins`, via `.jenkinsrc` and `.env` files. All configuration keys can be overridden via cli, by specifying `--${key}=${value}`.
 
-### .jenkinsrc
+### .jenkins-project-clirc
 ```js
 {
   "host": "https://jenkins-host.tld",   // jenkins instance to use
@@ -53,7 +53,7 @@ JENKINS_PASSWORD=[YOUR-PASSWORD]
 {
   "name": "jenkins-project-cli",
   "config": {
-    "jenkins": {
+    "jenkins-project-cli": {
         "host": "https://jenkins-host.tld",
         "group": "jenkins-group",
         "directory": "configuration/jenkins",

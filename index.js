@@ -9,6 +9,7 @@ const jenkins = require('jenkins');
 const denodeify = require('denodeify');
 const singlelog = require('single-line-log');
 const moment = require('moment');
+const rc = require('rc');
 
 // promisified node apis
 const writeFile = denodeify(require('fs').writeFile);
@@ -76,7 +77,7 @@ function fetchProjects(projects, configuration) {
 		.all(projects.map(project => fetchProject(api, project)))
 		.catch(err => {
 			err.message = [`${fail}    Error while fetching projects`, err.message];
-			return err;
+			throw err;
 		});
 }
 
@@ -112,7 +113,7 @@ function pushProjects(contents, configuration) {
 		.all(contents.map(content => pushProject(api, content.name, content.config)))
 		.catch(err => {
 			err.message = [`${fail}    Error while fetching projects`, err.message].join('\n');
-			return err;
+			throw err;
 		});
 }
 
@@ -261,7 +262,13 @@ function watchProject(projectName, runningProject, configuration) {
 const tasks = {
 	pull(projects, configuration) {
 		return fetchProjects(projects, configuration)
-			.then(content => writeProjects(content, configuration));
+			.catch(error => {
+				throw error;
+			})
+			.then(content => writeProjects(content, configuration))
+			.catch(error => {
+				throw error;
+			});
 	},
 	push(projects, configuration) {
 		return readProjects(projects, configuration)
@@ -354,8 +361,10 @@ function getProjectPackage() {
 
 function main(options) {
 	// get all process.env.JENKINS_* variables
-	const environment = getEnvironment('JENKINS');
+	const envName = pkg.name.split('-').join('_').toUpperCase();
+	const environment = getEnvironment(envName);
 	const projectPackage = getProjectPackage();
+	const rcConfiguration = rc('jenkins-project-cli');
 
 	// Merge cli flags and package.json config
 	// - read from pkg.config.jenkins
@@ -363,7 +372,8 @@ function main(options) {
 	// - omit user and password, they should not be placed there
 	const settings = _.merge(
 		{},
-		_.omit(((projectPackage.config || {}).jenkins || {}), ['user', 'password']),
+		_.omit(((projectPackage.config || {})['jenkins-project-cli'] || {}), ['user', 'password']),
+		_.omit(rcConfiguration, ['user', 'password']),
 		environment,
 		options
 	);
