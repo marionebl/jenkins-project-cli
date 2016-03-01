@@ -1,4 +1,4 @@
-![jenkins-project-cli logo](https://rawgit.com/marionebl/jenkins-project-cli/master/jenkins-project-cli.svg)
+![jenkins-project-cli logo](https://cdn.rawgit.com/marionebl/jenkins-project-cli/17a9cce7949e22e50216082cb091bfdcd7375452/jenkins-project-cli.svg)
 
 # jenkins-project-cli
 
