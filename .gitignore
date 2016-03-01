@@ -34,3 +34,7 @@ node_modules
 
 # jsonlint-cli cache
 .tmp
+
+# local config
+.env
+.jenkins-project-clirc
